@@ -64,11 +64,11 @@
         },
         {
             "id": 8,
-            "question": "Wygląd ilu z tych osób potrafisz sobie bardzo dokładnie przywołać w pamięci: Sharon Stone, Freddie Mercury, Meg Ryan?",
+            "question": "Czy zdarzyło Ci się czytać czyjeś maile w tajemnicy?",
             "answers": {
-                "odp1": "Żadnego",
-                "odp2": "Jeden, może dwa",
-                "odp3": "Wszystkie trzy"
+                "odp1": "Tak",
+                "odp2": "Nie",
+                "odp3": "Może"
             }
         },
         {
@@ -82,11 +82,29 @@
         },
         {
             "id": 10,
-            "question": "Właśnie wynaleziono wehikuł czasu. Zaoferowano Ci tygodniową wyprawę w przyszłość. Dokąd się wybierasz?",
+            "question": "Trafiła ci się wygrana na loterii - 5 milionów złotych. Co robisz?",
             "answers": {
-                "odp1": "Moskwa 2025 rok",
-                "odp2": "Pekin 2411 rok",
-                "odp3": "Jerozolima 4054 rok"
+                "odp1": "Milczę jak grób i zakładam lokatę w banku.",
+                "odp2": "Dzielę się wtgraną z rodziną.",
+                "odp3": "Robię huczną imprezę i kupuję nowe auto."
+            }
+        },
+        {
+            "id": 11,
+            "question": "Gdyby odkryto grzeszki JP2 to czy powinno mu się odebrać status świętego?",
+            "answers": {
+                "odp1": "Jeszcze jak",
+                "odp2": "Nie",
+                "odp3": "Nie wiem"
+            }
+        },
+        {
+            "id": 12,
+            "question": "Czy znany akwarelista wiedział o obozach?",
+            "answers": {
+                "odp1": "Tak",
+                "odp2": "Nie",
+                "odp3": "Nie ma na to dowodów"
             }
         }
     ]

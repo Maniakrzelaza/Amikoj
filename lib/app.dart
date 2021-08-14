@@ -15,16 +15,16 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
 import 'constants/constants.dart';
+import 'constants/size_prop.dart';
 
-final Store<AppState> store = Store<AppState>(appReducer,
-    initialState: AppState.initialState());
+final Store<AppState> store =
+    Store<AppState>(appReducer, initialState: AppState.initialState());
 
 Store<AppState> getStore() {
   return store;
 }
 
 class App extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     initQuestions(context);
@@ -42,7 +42,10 @@ class App extends StatelessWidget {
           ),
           initialRoute: '/',
           routes: {
-            '/': (context) => AccessPage(),
+            '/': (context) {
+              SizeProp.init(context);
+              return AccessPage();
+            },
             '/login': (context) => LoginPage(),
             '/register': (context) => RegisterPage(),
             '/home': (context) => HomePage(),

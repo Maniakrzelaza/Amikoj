@@ -55,7 +55,8 @@ class _RoomPage extends State<RoomPage> with DidBuild {
 
   void _createRoomSubscription(BuildContext context) {
     if (isRoomRefNull()) {
-      Map<String, dynamic> routeArgs = ModalRoute.of(context).settings.arguments;
+      Map<String, dynamic> routeArgs =
+          ModalRoute.of(context).settings.arguments;
       print(routeArgs);
       String roomName = routeArgs["roomName"];
       createRoomSubscription(roomName, context);
@@ -156,11 +157,12 @@ class _RoomPage extends State<RoomPage> with DidBuild {
                                 PillButton(
                                   "Leave",
                                   valid: true,
-                                  redirect: "/home",
+                                  // redirect: "/home",
                                   action: () async {
-                                    await removeYourselfFromRoom();
-                                    StoreProvider.of<AppState>(context)
-                                        .dispatch(ResetRoom());
+                                    showScoreTable(context);
+                                    // await removeYourselfFromRoom();
+                                    // StoreProvider.of<AppState>(context)
+                                    //     .dispatch(ResetRoom());
                                   },
                                 ),
                                 Spacer(),

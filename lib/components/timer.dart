@@ -10,12 +10,12 @@ class CountDownTimer extends StatefulWidget {
   CountDownTimer({this.size, this.onFinish, this.timerController});
 
   @override
-  _CountDownTimerState createState() => _CountDownTimerState(size, onFinish, timerController);
+  _CountDownTimerState createState() =>
+      _CountDownTimerState(size, onFinish, timerController);
 }
 
 class _CountDownTimerState extends State<CountDownTimer>
     with TickerProviderStateMixin {
-
   AnimationController controller;
 
   final int size;
@@ -28,7 +28,6 @@ class _CountDownTimerState extends State<CountDownTimer>
     this.timerController.setCountDownState(this);
   }
 
-
   String get timerString {
     Duration duration = controller.duration * controller.value;
     return '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
@@ -39,18 +38,14 @@ class _CountDownTimerState extends State<CountDownTimer>
     super.initState();
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 8),
+      duration: Duration(seconds: 20),
     );
     controller.addStatusListener((status) {
       if (status == AnimationStatus.dismissed) {
         onFinish();
       }
     });
-    controller.reverse(
-        from: controller.value == 0.0
-            ? 1.0
-            : controller.value);
-
+    controller.reverse(from: controller.value == 0.0 ? 1.0 : controller.value);
   }
 
   void reset() {
@@ -67,8 +62,7 @@ class _CountDownTimerState extends State<CountDownTimer>
     ThemeData themeData = Theme.of(context);
     return Scaffold(
       backgroundColor: Colors.white10,
-      body:
-      AnimatedBuilder(
+      body: AnimatedBuilder(
           animation: controller,
           builder: (context, child) {
             return Stack(
@@ -91,25 +85,23 @@ class _CountDownTimerState extends State<CountDownTimer>
                                     child: CustomPaint(
                                         painter: InnerPainter(
                                             animation: controller,
-                                            size: this.size
-                                        )),
+                                            size: this.size)),
                                   ),
                                   Positioned.fill(
                                     child: CustomPaint(
                                         painter: CustomTimerPainter(
-                                          animation: controller,
-                                          backgroundColor: Colors.white,
-                                          color: themeData.indicatorColor,
-                                          size: this.size
-                                        )),
+                                            animation: controller,
+                                            backgroundColor: Colors.white,
+                                            color: themeData.indicatorColor,
+                                            size: this.size)),
                                   ),
                                   Align(
                                     alignment: FractionalOffset.center,
                                     child: Column(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                          MainAxisAlignment.spaceEvenly,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                       children: <Widget>[
                                         Text(
                                           timerString,
@@ -137,7 +129,7 @@ class _CountDownTimerState extends State<CountDownTimer>
 }
 
 class TimerController {
-   _CountDownTimerState state;
+  _CountDownTimerState state;
 
   void setCountDownState(_CountDownTimerState state) {
     this.state = state;
@@ -151,7 +143,6 @@ class TimerController {
     state.stop();
   }
 }
-
 
 class CustomTimerPainter extends CustomPainter {
   CustomTimerPainter({
@@ -176,7 +167,13 @@ class CustomTimerPainter extends CustomPainter {
     canvas.drawCircle(size.center(Offset.zero), this.size / 2.0, paint);
     paint.color = color;
     double progress = (1.0 - animation.value) * 2 * math.pi;
-    canvas.drawArc(Rect.fromCircle(center: size.center(Offset.zero), radius: this.size / 2.0), math.pi * 1.5, -progress, false, paint);
+    canvas.drawArc(
+        Rect.fromCircle(
+            center: size.center(Offset.zero), radius: this.size / 2.0),
+        math.pi * 1.5,
+        -progress,
+        false,
+        paint);
   }
 
   @override

@@ -59,11 +59,6 @@ class _JoinRoomPageState extends State<JoinRoomPage> {
         isValid = false;
         error = "This room don't exist";
       });
-    } else if (playersInRoom.contains(name)) {
-      setState(() {
-        isValid = false;
-        error = "This room already contains a player with the same name";
-      });
     } else {
       setState(() {
         isValid = true;
